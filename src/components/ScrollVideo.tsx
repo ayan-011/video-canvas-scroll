@@ -159,8 +159,6 @@ export function ScrollVideo({
         playsInline
         preload="auto"
         disableRemotePlayback
-        // @ts-expect-error - non-standard but widely supported
-        disablePictureInPicture
         crossOrigin="anonymous"
         className="absolute inset-0 h-full w-full object-cover"
       />
