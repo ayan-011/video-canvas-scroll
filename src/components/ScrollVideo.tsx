@@ -29,41 +29,64 @@ export function ScrollVideo({
     const video = videoRef.current;
     if (!section || !video) return;
 
-    // Proxy object so GSAP can tween currentTime smoothly.
-    const state = { time: 0 };
-    let trigger: ScrollTrigger | null = null;
+    // iOS/Safari needs these to allow frame-accurate seeking.
+    video.muted = true;
+    video.pause();
+
+    const triggers: ScrollTrigger[] = [];
+    let rafId = 0;
+    let targetTime = 0;
+    let currentTime = 0;
+    let seeking = false;
+
+    // rAF loop: lerp currentTime toward targetTime; only seek when prior seek finished.
+    const tick = () => {
+      // Smoothing factor — lower = smoother but laggier. 0.18 feels cinematic.
+      currentTime += (targetTime - currentTime) * 0.18;
+      if (
+        !seeking &&
+        video.readyState >= 2 &&
+        Math.abs(currentTime - video.currentTime) > 1 / 120
+      ) {
+        seeking = true;
+        try {
+          video.currentTime = currentTime;
+        } catch {
+          /* noop */
+        }
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const onSeeked = () => {
+      seeking = false;
+    };
+    video.addEventListener("seeked", onSeeked);
 
     const setup = () => {
       const duration = video.duration;
       if (!duration || !isFinite(duration)) return;
 
-      trigger?.kill();
+      // Kill any previous triggers for this section before re-creating.
+      triggers.forEach((t) => t.kill());
+      triggers.length = 0;
 
-      const tween = gsap.to(state, {
-        time: duration,
-        ease: "none",
-        onUpdate: () => {
-          // Only assign when ready to avoid stalls.
-          if (video.readyState >= 2) {
-            video.currentTime = state.time;
-          }
-        },
-      });
-
-      trigger = ScrollTrigger.create({
+      const main = ScrollTrigger.create({
         trigger: section,
         start: "top top",
-        end: `+=${window.innerHeight * scrollLength}`,
+        end: () => `+=${window.innerHeight * scrollLength}`,
         pin: true,
-        scrub: 0.6, // smooth cinematic easing
         anticipatePin: 1,
-        animation: tween,
+        scrub: true,
         invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          targetTime = self.progress * duration;
+        },
       });
+      triggers.push(main);
 
-      // Overlay fades driven by scroll progress
       if (overlayInRef.current) {
-        gsap.fromTo(
+        const t = gsap.fromTo(
           overlayInRef.current,
           { autoAlpha: 1, y: 0 },
           {
@@ -73,14 +96,16 @@ export function ScrollVideo({
             scrollTrigger: {
               trigger: section,
               start: "top top",
-              end: `+=${window.innerHeight * scrollLength * 0.3}`,
+              end: () => `+=${window.innerHeight * scrollLength * 0.3}`,
               scrub: true,
             },
           },
         );
+        const st = (t.scrollTrigger as ScrollTrigger) || null;
+        if (st) triggers.push(st);
       }
       if (overlayOutRef.current) {
-        gsap.fromTo(
+        const t = gsap.fromTo(
           overlayOutRef.current,
           { autoAlpha: 0, y: 30 },
           {
@@ -89,32 +114,36 @@ export function ScrollVideo({
             ease: "none",
             scrollTrigger: {
               trigger: section,
-              start: `+=${window.innerHeight * scrollLength * 0.7}`,
-              end: `+=${window.innerHeight * scrollLength * 0.3}`,
+              start: () => `top+=${window.innerHeight * scrollLength * 0.7} top`,
+              end: () => `+=${window.innerHeight * scrollLength * 0.3}`,
               scrub: true,
             },
           },
         );
+        const st = (t.scrollTrigger as ScrollTrigger) || null;
+        if (st) triggers.push(st);
       }
+
+      // Kick off rAF after we have a duration.
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(tick);
+      ScrollTrigger.refresh();
     };
 
-    const onReady = () => setup();
+    const onMeta = () => setup();
 
     if (video.readyState >= 1 && video.duration) {
       setup();
     } else {
-      video.addEventListener("loadedmetadata", onReady, { once: true });
+      video.addEventListener("loadedmetadata", onMeta, { once: true });
     }
-
-    // Try to force preload of frames
     video.load();
 
     return () => {
-      video.removeEventListener("loadedmetadata", onReady);
-      trigger?.kill();
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === section) t.kill();
-      });
+      video.removeEventListener("loadedmetadata", onMeta);
+      video.removeEventListener("seeked", onSeeked);
+      cancelAnimationFrame(rafId);
+      triggers.forEach((t) => t.kill());
     };
   }, [scrollLength]);
 
@@ -130,6 +159,7 @@ export function ScrollVideo({
         playsInline
         preload="auto"
         disableRemotePlayback
+        crossOrigin="anonymous"
         className="absolute inset-0 h-full w-full object-cover"
       />
 
