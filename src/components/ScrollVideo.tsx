@@ -129,7 +129,6 @@ export function ScrollVideo({
         muted
         playsInline
         preload="auto"
-        // @ts-expect-error: non-standard but helps Safari scrubbing
         disableRemotePlayback
         className="absolute inset-0 h-full w-full object-cover"
       />
