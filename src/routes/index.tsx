@@ -33,34 +33,36 @@ function Index() {
     <main id="top" className="min-h-screen bg-background text-foreground">
       <Nav />
 
-      {/* Hero */}
-      <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-6 pt-24 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,color-mix(in_oklab,var(--color-mint)_25%,transparent),transparent_60%)]" />
-        <p className="relative text-xs uppercase tracking-[0.35em] text-mint">/ Launching Q4 2026</p>
-        <h1 className="relative mt-6 font-display text-[18vw] leading-[0.85] md:text-[12rem]">
-          CONSOLE<span className="text-mint text-glow">.</span>
-        </h1>
-        <p className="relative mt-6 max-w-xl text-base text-foreground/70 md:text-lg">
-          A machine that disappears into the game. Scroll to step inside.
-        </p>
-        <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="#pricing"
-            className="rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground transition hover:bg-mint-soft"
-          >
-            Pre-order
-          </a>
-          <a
-            href="#features"
-            className="rounded-full border border-border px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-foreground transition hover:border-mint hover:text-mint"
-          >
-            Explore specs
-          </a>
-        </div>
-        <div className="absolute bottom-10 text-xs uppercase tracking-[0.3em] text-foreground/40">
-          ▼ scroll
-        </div>
-      </section>
+      {false && (
+        /* Hero */
+        <section className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-6 pt-24 text-center">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,color-mix(in_oklab,var(--color-mint)_25%,transparent),transparent_60%)]" />
+          <p className="relative text-xs uppercase tracking-[0.35em] text-mint">/ Launching Q4 2026</p>
+          <h1 className="relative mt-6 font-display text-[18vw] leading-[0.85] md:text-[12rem]">
+            CONSOLE<span className="text-mint text-glow">.</span>
+          </h1>
+          <p className="relative mt-6 max-w-xl text-base text-foreground/70 md:text-lg">
+            A machine that disappears into the game. Scroll to step inside.
+          </p>
+          <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#pricing"
+              className="rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground transition hover:bg-mint-soft"
+            >
+              Pre-order
+            </a>
+            <a
+              href="#features"
+              className="rounded-full border border-border px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-foreground transition hover:border-mint hover:text-mint"
+            >
+              Explore specs
+            </a>
+          </div>
+          <div className="absolute bottom-10 text-xs uppercase tracking-[0.3em] text-foreground/40">
+            ▼ scroll
+          </div>
+        </section>
+      )}
 
       {/* Scroll-driven product video */}
       <ScrollVideo
