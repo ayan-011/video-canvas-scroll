@@ -12,13 +12,13 @@ import Footer from "@/components/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CONSOLE — The next generation of play" },
+      { title: "METAMOR — The next generation of play" },
       {
         name: "description",
         content:
-          "CONSOLE is the next-generation gaming machine. 8K @ 120fps, zero-latency haptics, and a 200+ title launch library. Pre-order now.",
+          "METAMOR is the next-generation gaming machine. 8K @ 120fps, zero-latency haptics, and a 200+ title launch library. Pre-order now.",
       },
-      { property: "og:title", content: "CONSOLE — The next generation of play" },
+      { property: "og:title", content: "METAMOR — The next generation of play" },
       {
         property: "og:description",
         content: "8K @ 120fps. Zero-latency haptics. The most ambitious console launch in a decade.",
@@ -39,7 +39,7 @@ function Index() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,color-mix(in_oklab,var(--color-mint)_25%,transparent),transparent_60%)]" />
           <p className="relative text-xs uppercase tracking-[0.35em] text-mint">/ Launching Q4 2026</p>
           <h1 className="relative mt-6 font-display text-[18vw] leading-[0.85] md:text-[12rem]">
-            CONSOLE<span className="text-mint text-glow">.</span>
+            METAMOR<span className="text-mint text-glow">.</span>
           </h1>
           <p className="relative mt-6 max-w-xl text-base text-foreground/70 md:text-lg">
             A machine that disappears into the game. Scroll to step inside.

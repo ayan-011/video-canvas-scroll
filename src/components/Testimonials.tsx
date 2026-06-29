@@ -1,6 +1,6 @@
 const quotes = [
   {
-    q: "The most ambitious console launch since the medium grew up. CONSOLE feels inevitable.",
+    q: "The most ambitious console launch since the medium grew up. METAMOR feels inevitable.",
     a: "EDGE Magazine",
   },
   {
