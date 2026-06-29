@@ -93,7 +93,7 @@
 }
 
 @utility text-glow {
-  text-shadow: 0 0 24px color-mix(in oklab, var(--color-mint) 60%, transparent);
+  text-shadow: none;
 }
 
 @utility marquee-track {
