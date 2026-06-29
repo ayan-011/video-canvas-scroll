@@ -14,7 +14,7 @@ export default function Marquee({ items, reverse = false }: MarqueeProps) {
             className="flex items-center gap-12 font-display text-4xl uppercase tracking-wider text-foreground/80 md:text-6xl"
           >
             {item}
-            <span className="inline-block h-2 w-2 rounded-full bg-mint shadow-[0_0_14px_var(--color-mint)]" />
+            <span className="inline-block h-2 w-2 rounded-full bg-mint" />
           </span>
         ))}
       </div>
