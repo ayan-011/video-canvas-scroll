@@ -85,8 +85,6 @@ function Index() {
       {/* Game library */}
       <GameLibrary />
 
-      {/* Pricing */}
-      <Pricing />
 
       {/* Testimonials */}
       <Testimonials />
