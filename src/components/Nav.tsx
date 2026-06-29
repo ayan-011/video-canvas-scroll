@@ -26,7 +26,7 @@ export default function Nav() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-10">
         <a href="#top" className="flex items-center gap-2 font-display text-2xl tracking-widest">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-mint shadow-[0_0_14px_var(--color-mint)]" />
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-mint" />
           CONSOLE
         </a>
 

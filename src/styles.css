@@ -46,31 +46,30 @@
 :root {
   --radius: 0.625rem;
 
-  /* Neon Mint palette */
-  --deep: oklch(0.18 0.04 230);          /* #0d1b2a */
-  --ink: oklch(0.28 0.07 165);           /* #1b4332 */
-  --mint: oklch(0.82 0.18 170);          /* #2dd4a8 */
-  --mint-soft: oklch(0.92 0.18 165);     /* #73ffb8 */
+  --deep: oklch(0.95 0.01 260);
+  --ink: oklch(0.55 0.12 185);
+  --mint: oklch(0.55 0.12 185);
+  --mint-soft: oklch(0.72 0.12 185);
 
-  --background: oklch(0.14 0.03 230);
-  --foreground: oklch(0.97 0.01 170);
-  --card: oklch(0.20 0.04 220);
-  --card-foreground: oklch(0.97 0.01 170);
-  --popover: oklch(0.20 0.04 220);
-  --popover-foreground: oklch(0.97 0.01 170);
-  --primary: oklch(0.82 0.18 170);
-  --primary-foreground: oklch(0.14 0.03 230);
-  --secondary: oklch(0.28 0.07 165);
-  --secondary-foreground: oklch(0.97 0.01 170);
-  --muted: oklch(0.24 0.03 220);
-  --muted-foreground: oklch(0.72 0.04 180);
-  --accent: oklch(0.92 0.18 165);
-  --accent-foreground: oklch(0.14 0.03 230);
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.2 0.02 260);
+  --card: oklch(0.97 0.01 260);
+  --card-foreground: oklch(0.2 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 260);
+  --primary: oklch(0.55 0.12 185);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.01 260);
+  --secondary-foreground: oklch(0.3 0.02 260);
+  --muted: oklch(0.95 0.01 260);
+  --muted-foreground: oklch(0.5 0.03 260);
+  --accent: oklch(0.92 0.05 185);
+  --accent-foreground: oklch(0.2 0.02 260);
   --destructive: oklch(0.62 0.22 25);
-  --destructive-foreground: oklch(0.97 0.01 170);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.82 0.18 170);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9 0.01 260);
+  --input: oklch(0.9 0.01 260);
+  --ring: oklch(0.55 0.12 185);
 }
 
 @layer base {
@@ -94,7 +93,7 @@
 }
 
 @utility text-glow {
-  text-shadow: 0 0 24px color-mix(in oklab, var(--color-mint) 60%, transparent);
+  text-shadow: none;
 }
 
 @utility marquee-track {

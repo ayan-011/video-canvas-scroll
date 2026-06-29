@@ -69,7 +69,7 @@ export default function HorizontalFeatures() {
 
   return (
     <section ref={sectionRef} id="features" className="relative h-screen overflow-hidden bg-background">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,color-mix(in_oklab,var(--color-mint)_20%,transparent),transparent_60%)]" />
+      <div className="pointer-events-none absolute inset-0" />
 
       <div className="absolute left-0 right-0 top-0 z-10 flex items-end justify-between px-5 pt-28 md:px-12">
         <div>
