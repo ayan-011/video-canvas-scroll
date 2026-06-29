@@ -74,11 +74,7 @@ export default function HorizontalFeatures() {
       <div className="absolute left-0 right-0 top-0 z-10 flex items-end justify-between px-5 pt-28 md:px-12">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-mint">/ Inside the machine</p>
-          <h2 className="mt-3 font-display text-5xl leading-none md:text-7xl">Built for the next decade.</h2>
         </div>
-        <p className="hidden max-w-xs text-sm text-foreground/60 md:block">
-          Scroll horizontally — every panel is a milestone in the spec sheet.
-        </p>
       </div>
 
       <div ref={trackRef} className="absolute left-0 top-0 flex h-full items-center gap-6 pl-5 pr-[20vw] pt-40 md:gap-10 md:pl-12">
