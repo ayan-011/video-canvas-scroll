@@ -2,12 +2,12 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const faqs = [
   {
-    q: "When does CONSOLE ship?",
+    q: "When does METAMOR ship?",
     a: "Pre-orders ship on November 14, 2026. Collector editions ship one week earlier with priority logistics.",
   },
   {
     q: "Is it backward compatible?",
-    a: "Yes. CONSOLE plays the full catalog from the previous generation, with automatic 4K/120fps upscaling where supported.",
+    a: "Yes. METAMOR plays the full catalog from the previous generation, with automatic 4K/120fps upscaling where supported.",
   },
   {
     q: "What's in the box?",
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: "Does it support VR?",
-    a: "CONSOLE ships VR-ready. Our headset, NOVA VISOR, launches Q2 2027 as a plug-and-play companion.",
+    a: "METAMOR ships VR-ready. Our headset, NOVA VISOR, launches Q2 2027 as a plug-and-play companion.",
   },
 ];
 

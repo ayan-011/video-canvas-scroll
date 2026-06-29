@@ -103,7 +103,7 @@ export default function HorizontalFeatures() {
           <div>
             <p className="font-display text-3xl md:text-5xl">Ready?</p>
             <a href="#pricing" className="mt-4 inline-block rounded-full bg-mint px-6 py-2 text-sm font-semibold uppercase tracking-wider text-primary-foreground">
-              Pre-order CONSOLE
+              Pre-order METAMOR
             </a>
           </div>
         </div>
