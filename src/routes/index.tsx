@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import HorizontalFeatures from "@/components/HorizontalFeatures";
 import Marquee from "@/components/Marquee";
 import GameLibrary from "@/components/GameLibrary";
-import Pricing from "@/components/Pricing";
+
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -85,8 +85,6 @@ function Index() {
       {/* Game library */}
       <GameLibrary />
 
-      {/* Pricing */}
-      <Pricing />
 
       {/* Testimonials */}
       <Testimonials />
