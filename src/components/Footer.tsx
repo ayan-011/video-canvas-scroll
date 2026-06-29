@@ -1,42 +1,85 @@
 export default function Footer() {
-  return (
-    <footer className="relative border-t border-border bg-background px-5 py-16 md:px-12">
-      <div className="mx-auto max-w-7xl">
-        <div className="flex flex-col gap-12 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="font-display text-6xl leading-none md:text-9xl">
-              CONSOLE<span className="text-mint">.</span>
-            </h2>
-            <p className="mt-4 max-w-md text-sm text-foreground/60">
-              The next generation of play. Engineered in Stockholm, built for everywhere.
-            </p>
-          </div>
+  const primary = ["Workflows", "Showcase", "Use cases", "About", "Blog", "Manifesto", "Brand"];
+  const secondary = ["Help Center", "Contact us", "Privacy Policy", "Terms of Use"];
 
-          <div className="grid grid-cols-2 gap-10 text-sm md:grid-cols-3">
-            {[
-              { h: "Shop", l: ["Standard", "Pro", "Collector", "Accessories"] },
-              { h: "Support", l: ["Help center", "Warranty", "Returns", "Contact"] },
-              { h: "Company", l: ["About", "Press", "Careers", "Investors"] },
-            ].map((col) => (
-              <div key={col.h}>
-                <p className="mb-3 text-[11px] uppercase tracking-[0.25em] text-mint">{col.h}</p>
-                <ul className="space-y-2">
-                  {col.l.map((i) => (
-                    <li key={i}>
-                      <a href="#" className="text-foreground/70 transition hover:text-foreground">
-                        {i}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+  return (
+    <footer className="relative overflow-hidden bg-[#0a0a0a] text-white">
+      <div className="px-5 pt-16 md:px-12 md:pt-20">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <span className="flex items-end gap-[3px]">
+            <span className="block h-3 w-[3px] bg-white" />
+            <span className="block h-5 w-[3px] bg-white" />
+            <span className="block h-4 w-[3px] bg-white" />
+          </span>
+          <span className="text-2xl font-medium tracking-tight">Metamor</span>
+        </div>
+
+        {/* Nav pills */}
+        <div className="mt-14 flex flex-col items-center gap-3">
+          <div className="flex flex-wrap justify-center gap-3">
+            {primary.map((l) => (
+              <a
+                key={l}
+                href="#"
+                className="rounded-md bg-white/[0.04] px-6 py-2.5 text-sm text-white/70 ring-1 ring-white/5 transition hover:bg-white/[0.08] hover:text-white"
+              >
+                {l}
+              </a>
+            ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {secondary.map((l) => (
+              <a
+                key={l}
+                href="#"
+                className="min-w-[160px] rounded-md bg-white/[0.04] px-6 py-2.5 text-center text-sm text-white/70 ring-1 ring-white/5 transition hover:bg-white/[0.08] hover:text-white"
+              >
+                {l}
+              </a>
             ))}
           </div>
         </div>
+      </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 text-xs uppercase tracking-[0.2em] text-foreground/50 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 CONSOLE Industries</p>
-          <p>Designed with intent — built for the long run.</p>
+      {/* Giant outlined wordmark */}
+      <div
+        aria-hidden
+        className="pointer-events-none mt-10 select-none overflow-hidden px-5 md:px-12"
+      >
+        <div
+          className="font-display whitespace-nowrap text-center leading-[0.85] tracking-tight"
+          style={{
+            fontSize: "clamp(5rem, 22vw, 22rem)",
+            WebkitTextStroke: "1px rgba(255,255,255,0.12)",
+            color: "transparent",
+          }}
+        >
+          Metamor
+        </div>
+      </div>
+
+      {/* Bottom row */}
+      <div className="border-t border-white/5 px-5 py-6 md:px-12">
+        <div className="flex flex-col items-center justify-between gap-4 text-xs text-white/50 md:flex-row">
+          <div className="flex flex-wrap items-center gap-6">
+            <span>© 2026 Metamor. All rights reserved</span>
+            <span className="flex items-center gap-2">
+              <span className="grid h-3.5 w-3.5 place-items-center rounded-full ring-1 ring-white/30">
+                <span className="block h-1 w-1 rounded-full bg-white/70" />
+              </span>
+              AICPA SOC 2 Type 1 certified
+            </span>
+          </div>
+          <div className="flex items-center gap-5">
+            <button className="flex items-center gap-1 text-white/60 hover:text-white">
+              EN <span className="text-[10px]">▾</span>
+            </button>
+            <span className="text-white/20">|</span>
+            <a href="#" aria-label="X" className="text-white/60 hover:text-white">𝕏</a>
+            <a href="#" aria-label="Instagram" className="text-white/60 hover:text-white">◎</a>
+            <a href="#" aria-label="LinkedIn" className="text-white/60 hover:text-white">in</a>
+          </div>
         </div>
       </div>
     </footer>
