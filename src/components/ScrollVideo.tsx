@@ -163,23 +163,23 @@ export function ScrollVideo({
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+      <div className="pointer-events-none absolute inset-0 bg-white/10" />
 
       <div
         ref={overlayInRef}
-        className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white"
+        className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-foreground"
       >
         <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">
           {overlayTitle}
         </h2>
-        <p className="mt-4 text-base text-white/80 md:text-lg">
+        <p className="mt-4 text-base text-foreground/70 md:text-lg">
           {overlaySubtitle}
         </p>
       </div>
 
       <div
         ref={overlayOutRef}
-        className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end px-6 pb-24 text-center text-white opacity-0"
+        className="pointer-events-none absolute inset-0 flex flex-col items-center justify-end px-6 pb-24 text-center text-foreground opacity-0"
       >
         <h3 className="text-3xl font-semibold tracking-tight md:text-5xl">
           Cinematic, frame by frame.
